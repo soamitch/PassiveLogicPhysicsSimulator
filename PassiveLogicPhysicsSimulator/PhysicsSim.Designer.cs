@@ -1,6 +1,6 @@
 ﻿namespace PassiveLogicPhysicsSimulator
 {
-    partial class Form1
+    partial class PhysicsSim
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhysicsSim));
             this.EnergyLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,6 +42,7 @@
             this.StartingTemp = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.StopButton = new System.Windows.Forms.Button();
+            this.OutputText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.EnergyOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WaterSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeLength)).BeginInit();
@@ -54,9 +55,9 @@
             this.EnergyLabel.AutoSize = true;
             this.EnergyLabel.Location = new System.Drawing.Point(12, 9);
             this.EnergyLabel.Name = "EnergyLabel";
-            this.EnergyLabel.Size = new System.Drawing.Size(490, 25);
+            this.EnergyLabel.Size = new System.Drawing.Size(404, 25);
             this.EnergyLabel.TabIndex = 2;
-            this.EnergyLabel.Text = "Energy Output of Solar Panel (Joules per Second)";
+            this.EnergyLabel.Text = "Energy Input from Solar Panel (Kilowatts)";
             // 
             // label1
             // 
@@ -81,17 +82,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 275);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(328, 25);
+            this.label3.Size = new System.Drawing.Size(363, 25);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Capacity of Storage Tank (Liters)";
+            this.label3.Text = "Capacity of Storage Tank (Meters^3)";
             // 
             // textBox1
             // 
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.No;
-            this.textBox1.Enabled = false;
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBox1.HideSelection = false;
             this.textBox1.Location = new System.Drawing.Point(12, 370);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(459, 143);
             this.textBox1.TabIndex = 10;
             this.textBox1.Text = resources.GetString("textBox1.Text");
@@ -110,39 +112,109 @@
             // 
             this.EnergyOut.DecimalPlaces = 2;
             this.EnergyOut.Location = new System.Drawing.Point(18, 49);
+            this.EnergyOut.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.EnergyOut.Name = "EnergyOut";
             this.EnergyOut.Size = new System.Drawing.Size(120, 31);
-            this.EnergyOut.TabIndex = 12;
+            this.EnergyOut.TabIndex = 1;
+            this.EnergyOut.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             // 
             // WaterSpeed
             // 
             this.WaterSpeed.DecimalPlaces = 2;
             this.WaterSpeed.Location = new System.Drawing.Point(18, 135);
+            this.WaterSpeed.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.WaterSpeed.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.WaterSpeed.Name = "WaterSpeed";
             this.WaterSpeed.Size = new System.Drawing.Size(120, 31);
             this.WaterSpeed.TabIndex = 13;
+            this.WaterSpeed.Value = new decimal(new int[] {
+            6000,
+            0,
+            0,
+            131072});
             // 
             // PipeLength
             // 
             this.PipeLength.Location = new System.Drawing.Point(18, 228);
+            this.PipeLength.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.PipeLength.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.PipeLength.Name = "PipeLength";
             this.PipeLength.Size = new System.Drawing.Size(120, 31);
             this.PipeLength.TabIndex = 14;
+            this.PipeLength.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             // 
             // TankCapacity
             // 
             this.TankCapacity.Location = new System.Drawing.Point(18, 321);
+            this.TankCapacity.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.TankCapacity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.TankCapacity.Name = "TankCapacity";
             this.TankCapacity.Size = new System.Drawing.Size(120, 31);
             this.TankCapacity.TabIndex = 15;
+            this.TankCapacity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // StartingTemp
             // 
             this.StartingTemp.DecimalPlaces = 2;
             this.StartingTemp.Location = new System.Drawing.Point(525, 49);
+            this.StartingTemp.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.StartingTemp.Minimum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            -2147483648});
             this.StartingTemp.Name = "StartingTemp";
             this.StartingTemp.Size = new System.Drawing.Size(120, 31);
             this.StartingTemp.TabIndex = 17;
+            this.StartingTemp.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             // 
             // label4
             // 
@@ -155,6 +227,7 @@
             // 
             // StopButton
             // 
+            this.StopButton.Enabled = false;
             this.StopButton.Location = new System.Drawing.Point(240, 532);
             this.StopButton.Name = "StopButton";
             this.StopButton.Size = new System.Drawing.Size(231, 56);
@@ -163,11 +236,24 @@
             this.StopButton.UseVisualStyleBackColor = true;
             this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
-            // Form1
+            // OutputText
+            // 
+            this.OutputText.AcceptsReturn = true;
+            this.OutputText.AcceptsTab = true;
+            this.OutputText.Location = new System.Drawing.Point(525, 124);
+            this.OutputText.Multiline = true;
+            this.OutputText.Name = "OutputText";
+            this.OutputText.ReadOnly = true;
+            this.OutputText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.OutputText.Size = new System.Drawing.Size(827, 464);
+            this.OutputText.TabIndex = 19;
+            // 
+            // PhysicsSim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1380, 771);
+            this.ClientSize = new System.Drawing.Size(1380, 655);
+            this.Controls.Add(this.OutputText);
             this.Controls.Add(this.StopButton);
             this.Controls.Add(this.StartingTemp);
             this.Controls.Add(this.label4);
@@ -181,8 +267,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EnergyLabel);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "PhysicsSim";
+            this.Text = "Solar Panel Heat Transfer Simulation";
             ((System.ComponentModel.ISupportInitialize)(this.EnergyOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WaterSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeLength)).EndInit();
@@ -208,6 +294,7 @@
         private System.Windows.Forms.NumericUpDown StartingTemp;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button StopButton;
+        private System.Windows.Forms.TextBox OutputText;
     }
 }
 
