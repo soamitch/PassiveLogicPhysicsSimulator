@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>each meter of piping will hold 30 liters of water. the heating element associated with the solar panel will come into contact with one liter of water. heat will be measured by average heat in the storagetank (celsius)</value>
+    <value>Each meter of piping will hold 30 liters of water. The heating element associated with the solar panel will come into contact with one liter of water. Heat will be measured by average heat in the storagetank (celsius)</value>
   </data>
 </root>
